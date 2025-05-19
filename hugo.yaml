@@ -7,13 +7,19 @@ caches:
     dir: :cacheDir/images
 params:
   homeInfoParams:
-    Title: Hi ! I am Rituraj
-    Content: I am a frontend engineer with a passion for performance and accessibility
+    Title: Hi wave
+    Content: |
+      ## I am Rituraj ! 
+      ### A frontend engineer with a passion for performance and accessibility
   socialIcons:
-    - name: "LinkedIn"
+    - name: "linkedin"
       url: "https://www.linkedin.com/in/theriturajsingh/"
-    - name: "Github"
+    - name: "cv"
+      url: "https://drive.google.com/file/d/1umuTthpMpxOZr0IDvDL69PicqjeGHcYs/view?usp=sharing"
+    - name: "github"
       url: "https://github.com/ritfiz"
+    - name: "email"
+      url: "mailto:riturajsingh820@gmail.com"
 
 
 
