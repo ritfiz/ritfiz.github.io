@@ -7,9 +7,12 @@ caches:
     dir: :cacheDir/images
 params:
   homeInfoParams:
-    Title: Hi wave
+    Title: Hey I am Rituraj !
+    imageUrl: "/me.JPG"
+    imageTitle: "Rituraj"
+    imageWidth: 120 # custom size
+    imageHeight: 120 # custom size
     Content: |
-      ## I am Rituraj ! 
       ### A frontend engineer with a passion for performance and accessibility
   socialIcons:
     - name: "linkedin"
