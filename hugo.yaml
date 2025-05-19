@@ -6,24 +6,14 @@ caches:
   images:
     dir: :cacheDir/images
 params:
-  profileMode:
-    enabled: true
-    title: "<Title>" # optional default will be site title
-    subtitle: "This is subtitle"
-    imageUrl: "<image link>" # optional
-    imageTitle: "<title of image as alt>" # optional
-    imageWidth: 120 # custom size
-    imageHeight: 120 # custom size
-    buttons:
-      - name: Archive
-        url: "/archive"
-      - name: Github
-        url: "https://github.com/"
+  homeInfoParams:
+    Title: Hi ! I am Rituraj
+    Content: I am a frontend engineer with a passion for performance and accessibility
+  socialIcons:
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/theriturajsingh/"
+    - name: "Github"
+      url: "https://github.com/ritfiz"
 
-  socialIcons: # optional
-    - name: "<platform>"
-      url: "<link>"
-    - name: "<platform 2>"
-      url: "<link2>"
 
 
