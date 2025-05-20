@@ -6,38 +6,37 @@ title: 'Fun with Server Sent Events'
 
 ## Introduction
 
-As the title goes, I was working on a project where I was trying to have fun with Server Sent Events.
-
-If you already know what it is, its a way for the server to send data to the frontend. Something similar to websocket but unidirectional in nature. 
-
-While we were building an app for Freight operators. We came across a very unique problem about which I will talk in today's blog.
+I was working on a project to experiment with Server‑Sent Events (SSE), which allow the server to send data to the frontend in a unidirectional stream.
+While developing an app for freight operators, we encountered a unique problem that I will discuss in this blog
 
 ### The app
 
-A dashboard with a list of trucks that the operator would like to track and for every truck, a panel showing insights about the transfer was shown.
+The application featured a dashboard that listed the trucks an operator wanted to track, and for each truck, a panel displayed insights about its transfer
 
 ### The problem
 
-We got some people complaining to us about jankiness and unresposive pages. 
+Some users reported that the pages felt janky and unresponsive
 
 ### Steps taken to track down the root cause
 
-Checking memory snapshots and profiling pages was a nobrainer for such an issue, but we did not find any specific issue with them. No memory leaks. No CPU hog.
+We captured memory snapshots and profiled the pages, standard steps when diagnosing performance issues, but we found no memory leaks or CPU bottlenecks.
 
-We got on a call with one of our clients and asked them to show us the issue on their system. Interestigly, they were using the app in a different manner. Since, all operators had more than one trucks being operated, the user had multiple tabs opened with different truck information shown on each page.
+Next, we asked one of our clients to reproduce the issue on their system. Interestingly, they used the app by opening multiple tabs, each showing data for a different truck — because each operator managed more than one vehicle.
 
-## The culprit
+### The culprit
 
-We were using Server sent events to send updates to the UI. Now, when a browser has to receive data from the SSE, it basically needs to keep a connection alive. When users opened multiple tabs, they were also keeping multiple connections open to the same url. 
+We employed Server‑Sent Events to push UI updates, which requires maintaining an open connection from the browser to the SSE endpoint. With multiple tabs open, each tab kept its own connection to the same URL. 
 
-Every browser has a limit on the number of connections it can have with a server url at a time. For chrome it is around 6. Once the connection limit is reached, any kind of request be it assets etc were getting dropped.
+Browsers limit the number of concurrent connections per origin—Chrome, for example, allows roughly six simultaneous connections to one URL. 
 
-## The solution
+After reaching this limit, any additional requests (including asset requests) were dropped, leading to slowed or frozen pages
 
-We offloaded the notification system to web workers as a first step. But that meant it will just process the request in the background, The connections would still be alive. 
+### The solution
 
-So we moved to SharedWorkers. A single worker which was shared across tabs and only one connection was established at a time.
+First, we offloaded our notification logic to a web worker so that updates would process in the background, though the open connections still remained
 
-## The code
+To ensure only a single connection per origin, we switched to a SharedWorker. This setup allowed all tabs to share one worker instance and establish only one SSE connection at a time 
+
+### The code
 
 TODO: Will update this section soon
