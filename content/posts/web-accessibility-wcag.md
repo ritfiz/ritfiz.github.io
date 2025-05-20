@@ -1,7 +1,7 @@
 ---
 date: '2025-05-20T11:10:23+05:30'
 draft: false
-title: 'Web Accessibility Wcag'
+title: 'Web Content Accessibility Guidelines'
 ---
 
 ## What is WCAG 
