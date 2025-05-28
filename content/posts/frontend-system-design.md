@@ -1,10 +1,8 @@
 ---
 date: '2025-05-28T12:02:48+05:30'
 draft: false
-title: 'Frontend System Design'
+title: 'Frontend System Design - A Walkthrough'
 ---
-
-# Steps involved in Frontend System Design
 
 A tried and tested framework that I have come to use pretty frequently is the RADIOS framework
 1. Requirement gathering
@@ -162,9 +160,7 @@ Even though this is mainly used for backend-to-backend connections, it's good to
 - Supports bi-directional streaming
 - Language agnostic
 
-## 4. Interface/API
-
-What APIs will be needed, and what should the contracts for each API be?
+Mention contracts for the APIs that you are plannin to use.
 
 ## 5. Optimization
 
