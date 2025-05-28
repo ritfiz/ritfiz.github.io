@@ -1,6 +1,6 @@
 ---
 date: '2025-05-28T12:02:48+05:30'
-draft: true
+draft: false
 title: 'Frontend System Design'
 ---
 
