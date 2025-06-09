@@ -5,6 +5,7 @@ title: Ritfiz Blogs
 caches:
   images:
     dir: :cacheDir/images
+googleAnalytics: "G-81ETGLL7H7"
 params:
   homeInfoParams:
     Title: Hey I am Rituraj !
